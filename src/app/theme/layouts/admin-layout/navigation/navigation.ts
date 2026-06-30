@@ -36,59 +36,67 @@ export const NavigationItems: NavigationItem[] = [
       }
     ]
   },
+
   {
-    id: 'authentication',
-    title: 'Authentication',
+    id: 'transactions',
+    title: 'Transactions',
     type: 'group',
-    icon: 'icon-navigation',
+    icon: 'file-text',
     children: [
       {
-        id: 'login',
-        title: 'Login',
+        id: 'invoice-entry',
+        title: 'Invoice Management',
         type: 'item',
-        classes: 'nav-item',
-        url: '/login',
-        icon: 'login',
-        target: true,
-        breadcrumbs: false
-      },
-      {
-        id: 'register',
-        title: 'Register',
-        type: 'item',
-        classes: 'nav-item',
-        url: '/register',
-        icon: 'profile',
-        target: true,
-        breadcrumbs: false
+        url: '/invoice-entry'
       }
     ]
   },
+
+  {
+    id: 'contract',
+    title: 'Contract',
+    type: 'group',
+    icon: 'file-text',
+    children: [
+      {
+        id: 'receipt-entry',
+        title: 'Receipt Entry',
+        type: 'item',
+        url: '/receipt-entry'
+      },
+      {
+        id: 'recurring-entries',
+        title: 'Recurring Entries',
+        type: 'item',
+        url: '/recurring-entries'
+      }
+    ]
+  },
+
   {
     id: 'utilities',
     title: 'UI Components',
     type: 'group',
     icon: 'icon-navigation',
     children: [
-     {
-  id: 'property-setup',
-  title: 'Property Setup',
-  type: 'item',
-  classes: 'nav-item',
-  url: '/property/setup',
-  icon: 'setting',
-  breadcrumbs: false
-},
-{
-    id: 'services',
-    title: 'Services',
-    type: 'item',
-    classes: 'nav-item',
-    url: '/services',
-    icon: 'setting',
-    breadcrumbs: false
-},
-
+      {
+        id: 'property-setup',
+        title: 'Property Setup',
+        type: 'item',
+        classes: 'nav-item',
+        url: '/property/setup',
+        icon: 'setting',
+        breadcrumbs: false
+      },
+      {
+        id: 'services',
+        title: 'Services',
+        type: 'item',
+        classes: 'nav-item',
+        url: '/services',
+        icon: 'tool',
+        breadcrumbs: false
+      },
       {
         id: 'typography',
         title: 'Typography',
@@ -114,6 +122,35 @@ export const NavigationItems: NavigationItem[] = [
         icon: 'ant-design',
         target: true,
         external: true
+      }
+    ]
+  },
+
+  {
+    id: 'authentication',
+    title: 'Authentication',
+    type: 'group',
+    icon: 'icon-navigation',
+    children: [
+      {
+        id: 'login',
+        title: 'Login',
+        type: 'item',
+        classes: 'nav-item',
+        url: '/login',
+        icon: 'login',
+        target: true,
+        breadcrumbs: false
+      },
+      {
+        id: 'register',
+        title: 'Register',
+        type: 'item',
+        classes: 'nav-item',
+        url: '/register',
+        icon: 'profile',
+        target: true,
+        breadcrumbs: false
       }
     ]
   },

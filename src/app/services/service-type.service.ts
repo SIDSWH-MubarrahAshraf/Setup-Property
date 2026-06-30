@@ -10,7 +10,7 @@ export class ServiceTypeService {
   private readonly apiUrl = `${environment.apiUrl}/ty/service-types`;
 
   // Paste your JWT token here temporarily
-  private readonly token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW4iLCJleHAiOjE3ODI3MzQ2NTUsImlzcyI6IlNJRF9UWUVSUCIsImF1ZCI6IlNJRF9UWUVSUF9DTElFTlQifQ.iB-5nBGD2XE7p1pnhDY6eNYGI2lJIt4wEk2OMNZ7lIM';
+  private readonly token = '';
 
   constructor(private http: HttpClient) {}
 
