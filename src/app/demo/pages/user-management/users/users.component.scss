@@ -1,0 +1,512 @@
+/* ==========================================================
+   USER MANAGEMENT
+========================================================== */
+
+.erp-container {
+  padding: 24px;
+  background: #f4f7fc;
+  min-height: 100vh;
+}
+
+/* ==========================================================
+   PAGE HEADER
+========================================================== */
+
+.erp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #6c5ce7;
+  margin-bottom: 4px;
+}
+
+.page-subtitle {
+  color: #6c757d;
+  margin: 0;
+  font-size: 14px;
+}
+
+/* ==========================================================
+   CARD
+========================================================== */
+
+.erp-card {
+  background: #fff;
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, .08);
+  overflow: hidden;
+}
+
+.card-header {
+  background: #6c5ce7;
+  color: #fff;
+  padding: 18px 24px;
+}
+
+.card-header h4 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.card-body {
+  padding: 30px;
+}
+
+.card-footer {
+  background: #fafafa;
+  padding: 20px 30px;
+  border-top: 1px solid #ececec;
+}
+
+/* ==========================================================
+   LABELS
+========================================================== */
+
+.form-label {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 8px;
+}
+
+.required::after {
+  content: " *";
+  color: #dc3545;
+}
+
+/* ==========================================================
+   INPUTS
+========================================================== */
+
+.form-control,
+.form-select {
+
+  height: 46px;
+  border-radius: 8px;
+  border: 1px solid #d7dce3;
+  transition: .25s;
+  font-size: 14px;
+}
+
+.form-control:focus,
+.form-select:focus {
+
+  border-color: #6c5ce7;
+  box-shadow: 0 0 0 .15rem rgba(0,39,102,.15);
+
+}
+
+.form-control::placeholder {
+  color: #adb5bd;
+}
+
+/* ==========================================================
+   INPUT GROUP
+========================================================== */
+
+.input-group .btn {
+
+  width: 50px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+
+}
+/* ==========================================================
+   SEARCH BUTTON
+========================================================== */
+
+.input-group .erp-btn-search {
+  width: 46px;
+  min-width: 46px;
+  height: 44px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 1px solid #d7dce3;
+  border-left: 0;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  color: #6c5ce7;
+  transition: all .25s ease;
+}
+
+.input-group .erp-btn-search:hover {
+  background: #f4f1ff;
+  border-color: #6c5ce7;
+  color: #6c5ce7;
+}
+
+.input-group .erp-btn-search:focus {
+  box-shadow: none;
+}
+
+.input-group .erp-btn-search svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+/* ==========================================================
+   GENDER
+========================================================== */
+
+.gender-group{
+
+    display:flex;
+    gap:30px;
+    align-items:center;
+    flex-wrap:wrap;
+
+}
+
+.gender-group .form-check{
+
+    padding:12px 18px;
+    border:1px solid #dee2e6;
+    border-radius:8px;
+    background:#fafafa;
+    min-width:120px;
+
+}
+
+/* ==========================================================
+   SECURITY
+========================================================== */
+
+.security-box{
+
+    border:1px solid #dee2e6;
+    border-radius:10px;
+    padding:15px;
+    background:#fbfcff;
+
+}
+
+.security-box .form-check{
+
+    margin-bottom:10px;
+
+}
+
+.security-box .form-check:last-child{
+
+    margin-bottom:0;
+
+}
+
+/* ==========================================================
+   STATUS
+========================================================== */
+
+.status-card{
+
+    border:1px solid #dee2e6;
+    border-radius:10px;
+    background:#fbfcff;
+    padding:15px;
+    min-height:165px;
+
+}
+
+/* ==========================================================
+   RADIO
+========================================================== */
+
+.form-check-input{
+
+    cursor:pointer;
+
+}
+
+.form-check-input:checked{
+
+    background:#6c5ce7;
+    border-color:#6c5ce7;
+
+}
+
+/* ==========================================================
+   BUTTONS
+========================================================== */
+
+.erp-btn-primary{
+
+    background:#6c5ce7;
+    color:white;
+    border:none;
+    border-radius:8px;
+    padding:11px 28px;
+    font-weight:600;
+    transition:.3s;
+
+}
+
+.erp-btn-primary:hover{
+
+    background:#0144aa;
+    color:white;
+
+}
+
+.erp-btn-danger{
+
+    background:#dc3545;
+    color:white;
+    border:none;
+    border-radius:8px;
+    padding:11px 28px;
+    font-weight:600;
+    transition:.3s;
+
+}
+
+.erp-btn-danger:hover{
+
+    background:#bb2d3b;
+    color:white;
+
+}
+
+.erp-btn-primary i,
+.erp-btn-danger i{
+
+    margin-right:8px;
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media(max-width:991px){
+
+.card-body{
+
+padding:20px;
+
+}
+
+.erp-header{
+
+flex-direction:column;
+align-items:flex-start;
+gap:10px;
+
+}
+
+.gender-group{
+
+flex-direction:column;
+align-items:flex-start;
+
+}
+
+.status-card{
+
+min-height:auto;
+
+}
+
+.card-footer{
+
+text-align:center !important;
+
+}
+
+.card-footer .btn{
+
+width:100%;
+margin-bottom:10px;
+
+}
+
+}
+.status-toggle {
+  display: flex;
+  gap: 12px;
+}
+
+.status-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border: 1px solid #dce3ea;
+  border-radius: 10px;
+  background: #fff;
+  cursor: pointer;
+  transition: .25s;
+  min-width: 110px;
+  justify-content: center;
+}
+
+.status-option:hover {
+  border-color: #6c5ce7;
+  background: #f5f8ff;
+}
+
+.status-option input {
+  margin: 0;
+}
+
+.input-group .erp-btn-search {
+  width: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-select,
+.form-control {
+  height: 44px;
+}
+
+.card-body {
+  padding: 2rem;
+}
+/* SVG inside the button */
+
+
+/* Search Button */
+.erp-btn-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  min-width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid #e6e8ef;
+  border-radius: 7px;
+  background: #ffffff;
+  color: #6c5ce7;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Hover */
+.erp-btn-search:hover {
+  background: #f4f1ff;
+  border-color: #6c5ce7;
+}
+
+/* Focus */
+.erp-btn-search:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.15);
+}
+$primary: #6c5ce7;
+$primary-soft: #f4f1ff;
+$border: #e6e8ef;
+
+/* Attached search button — glued to the right edge of the input,
+   same visual pattern as the Department module */
+.input-attached {
+  display: flex;
+  align-items: stretch;
+  height: 42px;               // matches global .form-control min-height !important
+  border: 1px solid $border;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-attached:focus-within {
+  border-color: $primary;
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.12);
+}
+
+.input-attached .form-control {
+  flex: 1;
+  min-width: 0;
+  height: 100% !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.input-attached .attached-btn {
+  flex: 0 0 42px;
+  width: 42px;
+  border: none;
+  border-left: 1px solid $border;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.input-attached .attached-btn svg {
+  width: 16px;
+  height: 16px;
+   fill: none;              // was: fill: $primary
+  stroke: $primary;   
+}
+
+.input-attached .attached-btn:hover {
+  background: $primary-soft;
+}
+.status-toggle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.status-toggle input {
+  display: none;
+}
+
+.toggle-label {
+  width: 52px;
+  height: 28px;
+  background: #e5e7eb;
+  border-radius: 30px;
+  position: relative;
+  cursor: pointer;
+  transition: all .25s ease;
+}
+
+.toggle-circle {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  background: #fff;
+  border-radius: 50%;
+  top: 3px;
+  left: 3px;
+  transition: all .25s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,.2);
+}
+
+.status-toggle input:checked + .toggle-label {
+  background: #22c55e;
+}
+
+.status-toggle input:checked + .toggle-label .toggle-circle {
+  transform: translateX(24px);
+}
+
+.status-text {
+  font-size: .9rem;
+  font-weight: 600;
+  transition: .25s;
+}
+
+.status-text.active {
+  color: #16a34a;
+}
+
+.status-text.inactive {
+  color: #ef4444;
+}

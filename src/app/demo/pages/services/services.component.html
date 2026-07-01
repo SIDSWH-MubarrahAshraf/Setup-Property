@@ -1,297 +1,206 @@
-<div class="erp-container">
-
-  <!-- ===================== PAGE HEADER ===================== -->
-  <div class="erp-header">
-    <div class="header-left">
-      <h1 class="page-title">Service Management</h1>
-    </div>
-  </div>
-
-  <!-- ===================== FORM ===================== -->
+<div class="services-shell">
   <form #serviceForm="ngForm" (ngSubmit)="onSave(serviceForm)" novalidate>
 
-    <!-- Service Details Card -->
-    <div class="erp-card">
-      <div class="erp-card-header">
-        <div class="header-icon-title">
-          <div class="icon-wrapper">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
-              <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492a3.246 3.246 0 0 0 0-6.492z"/>
-              <path d="M5.754.246a.5.5 0 0 1 .492 0l.826.475a1 1 0 0 0 .928 0l.826-.475a.5.5 0 0 1 .492 0l1.5.866a.5.5 0 0 1 .242.434l-.02.952a1 1 0 0 0 .464.857l.806.53a.5.5 0 0 1 .182.683l-.75 1.299a1 1 0 0 0 0 .99l.75 1.299a.5.5 0 0 1-.182.683l-.806.53a1 1 0 0 0-.464.857l.02.952a.5.5 0 0 1-.242.434l-1.5.866a.5.5 0 0 1-.492 0l-.826-.475a1 1 0 0 0-.928 0l-.826.475a.5.5 0 0 1-.492 0l-1.5-.866a.5.5 0 0 1-.242-.434l.02-.952a1 1 0 0 0-.464-.857l-.806-.53a.5.5 0 0 1-.182-.683l.75-1.299a1 1 0 0 0 0-.99l-.75-1.299a.5.5 0 0 1 .182-.683l.806-.53a1 1 0 0 0 .464-.857l-.02-.952a.5.5 0 0 1 .242-.434l1.5-.866z"/>
-            </svg>
+    <!-- Header now only has title + status -->
+    <header class="services-header">
+      <div class="title-group">
+        <div class="title-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+            <path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.04.04a2 2 0 1 1-2.83 2.83l-.04-.04A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6 1.7 1.7 0 0 0-.34 1.88V22a2 2 0 1 1-4 0v-.12A1.7 1.7 0 0 0 8.6 20a1.7 1.7 0 0 0-1.88-.34l-.12.06a2 2 0 1 1-2-3.46l.1-.06A1.7 1.7 0 0 0 5.4 15a1.7 1.7 0 0 0-.6-1 1.7 1.7 0 0 0-1.88-.34H2.8a2 2 0 1 1 0-4h.12A1.7 1.7 0 0 0 4.8 8.6a1.7 1.7 0 0 0-.34-1.88l-.04-.04A2 2 0 1 1 7.25 3.85l.04.04A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-.6 1.7 1.7 0 0 0 .34-1.88V2a2 2 0 1 1 4 0v.12A1.7 1.7 0 0 0 15.4 4a1.7 1.7 0 0 0 1.88.34l.12-.06a2 2 0 1 1 2 3.46l-.1.06A1.7 1.7 0 0 0 18.6 9a1.7 1.7 0 0 0 .6 1 1.7 1.7 0 0 0 1.88.34h.12a2 2 0 1 1 0 4h-.12A1.7 1.7 0 0 0 19.4 15z" />
+          </svg>
+        </div>
+        <h1>Service Management</h1>
+      </div>
+
+      <div class="header-actions">
+        <button
+          type="button"
+          class="status-toggle"
+          [class.is-inactive]="!model.isActive"
+          (click)="model.isActive = !model.isActive"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true" *ngIf="model.isActive">
+            <path d="M20 6 9 17l-5-5" />
+          </svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true" *ngIf="!model.isActive">
+            <path d="M18 6 6 18M6 6l12 12" />
+          </svg>
+          {{ model.isActive ? 'Active' : 'Inactive' }}
+        </button>
+      </div>
+    </header>
+
+    <section class="service-card">
+
+      <div class="card-body">
+
+        <!-- ROW 1: Service Mode alone -->
+        <div class="form-row form-row--single">
+          <label class="field">
+            <span>Service Mode <b>*</b></span>
+            <select
+              id="serviceMode"
+              name="serviceMode"
+              [(ngModel)]="model.serviceMode"
+              #serviceModeRef="ngModel"
+              (ngModelChange)="onServiceModeChange()"
+              required
+            >
+              <option value="">Select Service Mode</option>
+              <option value="rent">Rent</option>
+              <option value="sale">Security Deposit</option>
+              <option value="lease">Penalty</option>
+              <option value="maintenance">Miscellaneous</option>
+              <option value="subscription">Utility</option>
+            </select>
+            <small *ngIf="serviceModeRef.invalid && serviceModeRef.touched">Service mode is required.</small>
+          </label>
+        </div>
+
+        <!-- ROW 2: Service Type (with attached Search + New) + Description -->
+        <div class="form-row form-row--two">
+          <label class="field">
+            <span>Service Type <b>*</b></span>
+            <div class="input-attached">
+              <input
+                type="text"
+                id="serviceType"
+                name="serviceType"
+                placeholder="e.g. SVC-001"
+                [(ngModel)]="model.serviceType"
+                #serviceTypeRef="ngModel"
+                required
+                maxlength="50"
+              />
+              <button type="button" class="attached-btn" title="Search" (click)="onSearch()">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="m16.5 16.5 4 4" />
+                </svg>
+              </button>
+              <button type="button" class="attached-btn primary" title="New Service" (click)="onNew()">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 5v14M5 12h14" />
+                </svg>
+              </button>
+            </div>
+            <small *ngIf="serviceTypeRef.invalid && serviceTypeRef.touched">Service type is required.</small>
+          </label>
+
+          <label class="field">
+            <span>Description</span>
+            <input
+              type="text"
+              id="description"
+              name="description"
+              placeholder="Describe this service type"
+              [(ngModel)]="model.description"
+            />
+          </label>
+        </div>
+
+        <!-- ROW 3: Revenue Account -->
+        <div class="account-row">
+          <div class="account-panel">
+            <label class="field account-code">
+              <span>Revenue Account</span>
+              <div class="input-attached">
+                <input
+                  type="text"
+                  id="revenueAccountCode"
+                  name="revenueAccountCode"
+                  placeholder="Code"
+                  [(ngModel)]="model.revenueAccountCode"
+                  (blur)="resolveAccountName('revenue')"
+                />
+                <button type="button" class="attached-btn" title="Search Revenue Account" (click)="onLookup('revenue')">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="m16.5 16.5 4 4" />
+                  </svg>
+                </button>
+              </div>
+            </label>
+
+            <div class="account-name-col">
+              <span class="account-name-spacer" aria-hidden="true">&nbsp;</span>
+              <div class="account-name">{{ model.revenueAccountName || 'Select an account...' }}</div>
+            </div>
           </div>
-          <div class="header-text-group">
-            <h2 class="card-title">Service details</h2>
+
+          <label class="recurring-check" *ngIf="model.serviceMode === 'rent'">
+            <input
+              type="checkbox"
+              id="recurringEntry"
+              name="recurringEntry"
+              [(ngModel)]="model.recurringEntry"
+            />
+            <span>Recurring entry</span>
+          </label>
+        </div>
+
+        <!-- ROW 4: Recurring Account -->
+        <div class="account-row" *ngIf="model.serviceMode === 'rent' && model.recurringEntry">
+          <div class="account-panel">
+            <label class="field account-code">
+              <span>Recurring Account</span>
+              <div class="input-attached">
+                <input
+                  type="text"
+                  id="recurringAccountCode"
+                  name="recurringAccountCode"
+                  placeholder="Code"
+                  [(ngModel)]="model.recurringAccountCode"
+                  (blur)="resolveAccountName('recurring')"
+                />
+                <button type="button" class="attached-btn" title="Search Recurring Account" (click)="onLookup('recurring')">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="m16.5 16.5 4 4" />
+                  </svg>
+                </button>
+              </div>
+            </label>
+
+            <div class="account-name-col">
+              <span class="account-name-spacer" aria-hidden="true">&nbsp;</span>
+              <div class="account-name">{{ model.recurringAccountName || 'Select an account...' }}</div>
+            </div>
           </div>
         </div>
 
-        <!-- Active / Inactive status toggle -->
-        <div class="status-toggle-wrapper">
-          <button
-            type="button"
-            class="erp-btn erp-status-btn"
-            [class.erp-status-btn--active]="model.isActive"
-            [class.erp-status-btn--inactive]="!model.isActive"
-            (click)="model.isActive = !model.isActive"
-          >
-            <i class="bi" [class.bi-check-circle-fill]="model.isActive" [class.bi-x-circle-fill]="!model.isActive"></i>
-            {{ model.isActive ? 'Active' : 'Inactive' }}
+      </div>
+
+      <!-- Footer now lives inside the SAME card -->
+      <div class="card-actions">
+        <button type="button" class="action-btn danger" [disabled]="isNew" (click)="onDelete()">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6M10 11v6M14 11v6" />
+          </svg>
+          Delete
+        </button>
+        <div>
+          <button type="button" class="action-btn secondary" (click)="onClose()">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M18 6 6 18M6 6l12 12" />
+            </svg>
+            Close
+          </button>
+          <button type="submit" class="action-btn primary">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
+              <path d="M17 21v-8H7v8M7 3v5h8" />
+            </svg>
+            Save
           </button>
         </div>
       </div>
 
-      <div class="erp-card-body">
-
-        <!-- ===================== Row 1: Service Mode ===================== -->
-        <div class="row mb-3">
-          <div class="col-md-5">
-            <label class="erp-label" for="serviceMode">
-              Service Mode <span class="required-star">*</span>
-            </label>
-
-            <div class="erp-input-wrapper">
-              <span class="input-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                  <path d="M8 1L1 5l7 4 7-4-7-4zm0 5.2L2.7 5 8 2l5.3 3L8 6.2zm-7 1.8l7 4 7-4v2l-7 4-7-4V8zm0 3l7 4 7-4v2l-7 4-7-4v-2z"/>
-                </svg>
-              </span>
-
-              <select
-                id="serviceMode"
-                name="serviceMode"
-                class="erp-input erp-select"
-                [(ngModel)]="model.serviceMode"
-                #serviceModeRef="ngModel"
-                (ngModelChange)="onServiceModeChange()"
-                required>
-                <option value="rent">Rent</option>
-                <option value="sale">Security Deposit</option>
-                <option value="lease">Penalty</option>
-                <option value="maintenance">Miscellaneous</option>
-                <option value="subscription">Utility</option>
-              </select>
-            </div>
-
-            <div class="erp-field-error" *ngIf="serviceModeRef.invalid && serviceModeRef.touched">
-              Service mode is required.
-            </div>
-          </div>
-        </div>
-
-        <!-- ===================== Row 2: Service Type (+ search/add) + Description ===================== -->
-        <div class="row mb-3">
-
-          <!-- Service Type -->
-          <div class="col-md-6">
-            <label class="erp-label" for="serviceType">
-              Service type <span class="required-star">*</span>
-            </label>
-
-            <div class="service-type-nav">
-              <div class="erp-input-wrapper flex-grow-1">
-                <span class="input-icon">
-                  <i class="bi bi-tag"></i>
-                </span>
-                <input
-                  type="text"
-                  id="serviceType"
-                  name="serviceType"
-                  class="erp-input"
-                  placeholder="e.g. SVC-001"
-                  [(ngModel)]="model.serviceType"
-                  #serviceTypeRef="ngModel"
-                  required
-                  maxlength="50"
-                />
-              </div>
-
-              <!-- Search Button -->
-              <button type="button" class="nav-btn" title="Search" (click)="onSearch()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.867-3.834zM12 6.5a5.5 5.5 0 1 1-11 0a5.5 5.5 0 0 1 11 0"/>
-                </svg>
-              </button>
-
-              <!-- Add Button -->
-              <button type="button" class="nav-btn nav-btn--add" title="New Service" (click)="onNew()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
-                </svg>
-              </button>
-            </div>
-
-            <div class="erp-field-error" *ngIf="serviceTypeRef.invalid && serviceTypeRef.touched">
-              Service type is required.
-            </div>
-          </div>
-
-          <!-- Description: matched height to the service-type input row -->
-          <div class="col-md-6">
-            <label class="erp-label" for="description">Description</label>
-            <div class="erp-input-wrapper erp-input-wrapper--single-line">
-              <span class="input-icon"><i class="bi bi-text-left"></i></span>
-              <input
-                type="text"
-                id="description"
-                name="description"
-                class="erp-input"
-                placeholder="Describe this service type…"
-                [(ngModel)]="model.description"
-              />
-            </div>
-          </div>
-        </div>
-
-        <!-- ===================== Row 3: Revenue Account ===================== -->
-        <div class="row mb-3">
-          <div class="col-12">
-            <label class="erp-label" for="revenueAccountCode">Revenue Account</label>
-
-            <div class="account-lookup-row">
-
-              <!-- Account Code -->
-              <div class="account-code">
-                <div class="erp-input-wrapper">
-                  <span class="input-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                      <path d="M14 4.5V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h7.5L14 4.5z"/>
-                      <path d="M10.5 1v3a.5.5 0 0 0 .5.5h3"/>
-                      <path d="M4 7h8M4 9h8M4 11h5" stroke="currentColor" stroke-width="1" fill="none"/>
-                    </svg>
-                  </span>
-                  <input
-                    type="text"
-                    id="revenueAccountCode"
-                    name="revenueAccountCode"
-                    class="erp-input"
-                    placeholder="Code"
-                    [(ngModel)]="model.revenueAccountCode"
-                    (blur)="resolveAccountName('revenue')">
-                </div>
-              </div>
-
-              <!-- Search Button -->
-              <button type="button" class="nav-btn" title="Search" (click)="onSearch()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.867-3.834zM12 6.5a5.5 5.5 0 1 1-11 0a5.5 5.5 0 0 1 11 0"/>
-                </svg>
-              </button>
-
-              <!-- Account Name -->
-              <div class="account-name">
-                {{ model.revenueAccountName || 'Select an account...' }}
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <!-- ===================== Row 4: Recurring Entry Toggle (rent only) ===================== -->
-        <div class="row mb-2" *ngIf="model.serviceMode === 'rent'">
-          <div class="col-12">
-            <div class="erp-checkbox-row">
-              <input
-                type="checkbox"
-                id="recurringEntry"
-                name="recurringEntry"
-                class="erp-checkbox"
-                [(ngModel)]="model.recurringEntry"
-              />
-              <label for="recurringEntry" class="erp-checkbox-label">Recurring entry</label>
-            </div>
-          </div>
-        </div>
-
-        <!-- ===================== Row 5: Recurring Account (rent + checked) ===================== -->
-        <!-- Styled identically to the Revenue Account row above -->
-        <div
-          class="recurring-section"
-          [class.visible]="model.serviceMode === 'rent' && model.recurringEntry"
-          *ngIf="model.serviceMode === 'rent' && model.recurringEntry"
-        >
-          <div class="recurring-section-inner">
-
-            <!-- Recurring Account: code -> search -> name, same row pattern -->
-            <div class="row mb-3">
-              <div class="col-12">
-                <label class="erp-label" for="recurringAccountCode">Recurring Account</label>
-
-                <div class="account-lookup-row">
-
-                  <!-- Account Code -->
-                  <div class="account-code">
-                    <div class="erp-input-wrapper">
-                      <span class="input-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                          <path d="M14 4.5V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h7.5L14 4.5z"/>
-                          <path d="M10.5 1v3a.5.5 0 0 0 .5.5h3"/>
-                          <path d="M4 7h8M4 9h8M4 11h5" stroke="currentColor" stroke-width="1" fill="none"/>
-                        </svg>
-                      </span>
-                      <input
-                        type="text"
-                        id="recurringAccountCode"
-                        name="recurringAccountCode"
-                        class="erp-input"
-                        placeholder="Code"
-                        [(ngModel)]="model.recurringAccountCode"
-                        (blur)="resolveAccountName('recurring')">
-                    </div>
-                  </div>
-
-                  <!-- Search Button -->
-                  <button type="button" class="nav-btn" title="Search" (click)="onSearch()">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.867-3.834zM12 6.5a5.5 5.5 0 1 1-11 0a5.5 5.5 0 0 1 11 0"/>
-                    </svg>
-                  </button>
-
-                  <!-- Account Name -->
-                  <div class="account-name">
-                    {{ model.recurringAccountName || 'Select an account...' }}
-                  </div>
-
-                </div>
-              </div>
-            </div>
-
-            <!-- Recurring Frequency -->
-            
-
-          </div>
-        </div>
-
-      </div><!-- /erp-card-body -->
-    </div><!-- /erp-card -->
-
-    <!-- ===================== FOOTER ACTIONS ===================== -->
-    <div class="erp-actions-footer">
-      <div class="left-actions">
-        <button
-          type="button"
-          class="erp-btn erp-btn-danger"
-          [disabled]="isNew"
-          (click)="onDelete()"
-        >
-          <i class="bi bi-trash3"></i> Delete
-        </button>
-      </div>
-      <div class="right-actions">
-        <button type="button" class="erp-btn erp-btn-secondary" (click)="onClose()">
-          <i class="bi bi-x-lg"></i> Close
-        </button>
-        <button type="submit" class="erp-btn erp-btn-primary">
-          <i class="bi bi-floppy"></i> Save
-        </button>
-      </div>
-    </div>
-
+    </section>
   </form>
 
-  <!-- ===================== TOAST ===================== -->
   <div class="erp-toast" [class.erp-toast--show]="toast.visible" [class.erp-toast--danger]="toast.type === 'danger'">
-    <i class="bi" [class.bi-check-circle-fill]="toast.type === 'success'" [class.bi-exclamation-circle-fill]="toast.type === 'danger'"></i>
     {{ toast.message }}
   </div>
-
 </div>

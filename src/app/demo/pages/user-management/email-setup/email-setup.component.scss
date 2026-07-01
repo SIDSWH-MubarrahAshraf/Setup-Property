@@ -1,0 +1,231 @@
+/* ==========================================================
+   EMAIL SETUP
+========================================================== */
+
+.erp-container {
+  padding: 24px;
+  background: #f4f7fc;
+  min-height: 100vh;
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.erp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.page-title {
+  color: #6c5ce7;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.page-subtitle {
+  color: #6c757d;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* ==========================================================
+   CARD
+========================================================== */
+
+.erp-card {
+  background: #ffffff;
+  border-radius: 12px;
+  border: none;
+  overflow: hidden;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+}
+
+.card-header {
+  background: #6c5ce7;
+  color: #ffffff;
+  padding: 18px 24px;
+}
+
+.card-header h4 {
+  margin: 0;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.card-body {
+  padding: 30px;
+}
+
+.card-footer {
+  background: #fafafa;
+  border-top: 1px solid #ececec;
+  padding: 20px 30px;
+}
+
+/* ==========================================================
+   LABELS
+========================================================== */
+
+.form-label {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 8px;
+}
+
+.required::after {
+  content: " *";
+  color: #dc3545;
+}
+
+/* ==========================================================
+   INPUTS
+========================================================== */
+
+.form-control {
+
+  height: 46px;
+  border-radius: 8px;
+  border: 1px solid #d8dde5;
+  transition: .25s;
+  font-size: 14px;
+
+}
+
+.form-control:focus {
+
+  border-color: #6c5ce7;
+  box-shadow: 0 0 0 .15rem rgba(0,39,102,.15);
+
+}
+
+.form-control::placeholder {
+
+  color: #adb5bd;
+
+}
+
+/* ==========================================================
+   BUTTONS
+========================================================== */
+
+.erp-btn-primary {
+
+  background: #6c5ce7;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  height: 46px;
+  min-width: 120px;
+  font-weight: 600;
+  transition: .3s;
+
+}
+
+.erp-btn-primary:hover {
+
+  background: #0144aa;
+  color: white;
+
+}
+
+.erp-btn-success {
+
+  background: #198754;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  height: 46px;
+  min-width: 120px;
+  font-weight: 600;
+  transition: .3s;
+
+}
+
+.erp-btn-success:hover {
+
+  background: #157347;
+  color: white;
+
+}
+
+.erp-btn-search {
+
+  background: #0d6efd;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  height: 46px;
+  font-weight: 600;
+  transition: .3s;
+
+}
+
+.erp-btn-search:hover {
+
+  background: #0b5ed7;
+  color: white;
+
+}
+
+.erp-btn-primary i,
+.erp-btn-success i,
+.erp-btn-search i {
+
+  margin-right: 6px;
+
+}
+
+/* ==========================================================
+   TEST EMAIL CARD
+========================================================== */
+
+.mt-4 {
+
+  margin-top: 24px !important;
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width: 991px) {
+
+  .erp-header {
+
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+
+  }
+
+  .card-body {
+
+    padding: 20px;
+
+  }
+
+  .row > div {
+
+    margin-bottom: 15px;
+
+  }
+
+  .card-footer {
+
+    text-align: center !important;
+
+  }
+
+  .card-footer .btn {
+
+    width: 100%;
+    margin-bottom: 10px;
+
+  }
+
+}

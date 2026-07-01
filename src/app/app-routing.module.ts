@@ -56,7 +56,61 @@ const routes: Routes = [
         loadComponent: () =>
           import('./demo/pages/blank/blank.component').then((c) => c.BlankComponent)
       },
-    ]
+      {
+  path: 'user-management',
+  loadComponent: () =>
+    import('./demo/pages/user-management/user-management.component')
+      .then(c => c.UserManagementComponent),
+  children: [
+    {
+      path: '',
+      redirectTo: 'users',
+      pathMatch: 'full'
+    },
+    {
+      path: 'users',
+      loadComponent: () =>
+        import('./demo/pages/user-management/users/users.component')
+          .then(c => c.UsersComponent)
+    },
+    {
+      path: 'branch',
+      loadComponent: () =>
+        import('./demo/pages/user-management/branch/branch.component')
+          .then(c => c.BranchComponent)
+    },
+    {
+      path: 'department',
+      loadComponent: () =>
+        import('./demo/pages/user-management/department/department.component')
+          .then(c => c.DepartmentComponent)
+    },
+    {
+      path: 'designation',
+      loadComponent: () =>
+        import('./demo/pages/user-management/designation/designation.component')
+          .then(c => c.DesignationComponent)
+    },
+    {
+      path: 'document-number',
+      loadComponent: () =>
+        import('./demo/pages/user-management/document/document.component')
+          .then(c => c.DocumentNumberComponent)
+    },
+    {
+      path: 'company-email',
+      redirectTo: 'email-setup',
+      pathMatch: 'full'
+    },
+    {
+      path: 'email-setup',
+      loadComponent: () =>
+        import('./demo/pages/user-management/email-setup/email-setup.component')
+          .then(c => c.EmailSetupComponent)
+    }
+  ]
+},
+   ]  
   },
   {
     path: '',

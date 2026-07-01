@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
 import { FormsModule } from '@angular/forms';
-
+import { PropertyService } from 'src/app/services/property.service';
 @Component({
   selector: 'app-property',
   standalone: true,
@@ -10,6 +10,10 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./property.component.scss']
 })
 export class PropertyComponent {
+constructor(
+    private propertyService: PropertyService
+  ) { }
+  propertyKey: number = 0;
 
   // =========================
   // Property Fields
@@ -37,8 +41,56 @@ export class PropertyComponent {
   // Property Methods
   // =========================
   saveProperty(): void {
-    console.log('Property Saved');
-  }
+
+  const property = {
+    propertyId: '',
+    propertyName: this.propertyName,
+    propertyArea: this.propertyArea,
+    propertyMakani: this.propertyMakani,
+    propertyCountry: this.propertyCountry,
+    propertyCity: this.propertyCity,
+    propertyType: this.propertyType,
+    plotNo: this.plotNo,
+    landDmNumber: this.landDmNumber,
+    others: this.others,
+    inactive: this.inactive,
+    inactiveDate: null,
+    remarks: this.remarks
+  };
+
+  this.propertyService.addProperty(property).subscribe({
+
+    next: (response) => {
+
+      console.log(response);
+
+      if (response.success) {
+
+        this.propertyKey = response.data.id;
+
+        alert('Property saved successfully.');
+
+        console.log('Property ID:', this.propertyKey);
+
+      } else {
+
+        alert(response.message);
+
+      }
+
+    },
+
+    error: (error) => {
+
+      console.error(error);
+
+      alert('Something went wrong while saving the property.');
+
+    }
+
+  });
+
+}
 
   deleteProperty(): void {
     console.log('Property Deleted');

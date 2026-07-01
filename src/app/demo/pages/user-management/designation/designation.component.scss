@@ -1,0 +1,268 @@
+/* ==========================================================
+   DESIGNATION MANAGEMENT
+========================================================== */
+
+.erp-container {
+  padding: 24px;
+  background: #f4f7fc;
+  min-height: 100vh;
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.erp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #6c5ce7;
+  margin-bottom: 4px;
+}
+
+.page-subtitle {
+  margin: 0;
+  color: #6c757d;
+  font-size: 14px;
+}
+
+/* ==========================================================
+   CARD
+========================================================== */
+
+.erp-card {
+  background: #ffffff;
+  border-radius: 12px;
+  border: none;
+  overflow: hidden;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, .08);
+}
+
+.card-header {
+  background: #6c5ce7;
+  color: white;
+  padding: 18px 25px;
+}
+
+.card-header h4 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.card-body {
+  padding: 30px;
+}
+
+.card-footer {
+  background: #fafafa;
+  padding: 20px 30px;
+  border-top: 1px solid #ececec;
+}
+
+/* ==========================================================
+   LABELS
+========================================================== */
+
+.form-label {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 8px;
+}
+
+.required::after {
+  content: " *";
+  color: #dc3545;
+}
+
+/* ==========================================================
+   INPUTS
+========================================================== */
+
+.form-control {
+  height: 46px;
+  border-radius: 8px;
+  border: 1px solid #d7dce3;
+  transition: .25s;
+  font-size: 14px;
+}
+
+.form-control:focus {
+  border-color: #6c5ce7;
+  box-shadow: 0 0 0 .15rem rgba(0, 39, 102, .15);
+}
+
+.form-control[readonly] {
+  background: #f8f9fa;
+  cursor: not-allowed;
+}
+
+/* ==========================================================
+   BUTTONS
+========================================================== */
+
+.erp-btn-primary {
+  background: #6c5ce7;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  height: 46px;
+  font-weight: 600;
+  transition: .3s;
+}
+
+.erp-btn-primary:hover {
+  background: #0144aa;
+  color: white;
+}
+
+.erp-btn-danger {
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  height: 46px;
+  font-weight: 600;
+  transition: .3s;
+}
+
+.erp-btn-danger:hover {
+  background: #bb2d3b;
+  color: white;
+}
+
+.erp-btn-search {
+  background: #0d6efd;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  height: 46px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .3s;
+}
+
+.erp-btn-search:hover {
+  background: #0b5ed7;
+  color: white;
+}
+
+.erp-btn-secondary {
+  background: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  height: 46px;
+  font-weight: 600;
+  transition: .3s;
+}
+
+.erp-btn-secondary:hover {
+  background: #5c636a;
+  color: white;
+}
+
+.erp-btn-primary i,
+.erp-btn-danger i,
+.erp-btn-secondary i {
+  margin-right: 6px;
+}
+
+.erp-btn-search svg {
+  margin-right: 6px;
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width: 991px) {
+
+  .erp-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .card-body {
+    padding: 20px;
+  }
+
+  .row > div {
+    margin-bottom: 15px;
+  }
+
+  .card-footer {
+    text-align: center !important;
+  }
+
+  .card-footer .btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+}
+$primary: #6c5ce7;
+$primary-soft: #f4f1ff;
+$border: #e6e8ef;
+
+/* Same attached-search pattern as Department / User components */
+.input-attached {
+  display: flex;
+  align-items: stretch;
+  height: 42px;
+  border: 1px solid $border;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-attached:focus-within {
+  border-color: $primary;
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.12);
+}
+
+.input-attached .form-control {
+  flex: 1;
+  min-width: 0;
+  height: 100% !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.input-attached .attached-btn {
+  flex: 0 0 42px;
+  width: 42px;
+  border: none;
+  border-left: 1px solid $border;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.input-attached .attached-btn svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: $primary;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.input-attached .attached-btn:hover {
+  background: $primary-soft;
+}

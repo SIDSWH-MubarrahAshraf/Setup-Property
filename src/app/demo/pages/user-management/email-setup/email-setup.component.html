@@ -1,0 +1,246 @@
+<div class="erp-container">
+
+  
+
+  <!-- ===================================================== -->
+  <!-- EMAIL SETUP CARD -->
+  <!-- ===================================================== -->
+
+  <form
+    #emailForm="ngForm"
+    (ngSubmit)="saveEmailSetup(emailForm)"
+    novalidate>
+
+    <div class="erp-card">
+
+      <div class="card-header">
+        <h4>Email Configuration</h4>
+      </div>
+
+      <div class="card-body">
+
+        <!-- =============================================== -->
+        <!-- ROW 1 -->
+        <!-- =============================================== -->
+
+        <div class="row g-4">
+
+          <div class="col-lg-6">
+
+            <label class="form-label required">
+
+              Email Host
+
+            </label>
+
+            <input
+              type="text"
+              class="form-control"
+              name="emailHost"
+              [(ngModel)]="email.emailHost"
+              placeholder="smtp.gmail.com"
+              required>
+
+          </div>
+
+          <div class="col-lg-6">
+
+            <label class="form-label required">
+
+              Email Port
+
+            </label>
+
+            <input
+              type="number"
+              class="form-control"
+              name="emailPort"
+              [(ngModel)]="email.emailPort"
+              placeholder="587"
+              required>
+
+          </div>
+
+        </div>
+
+        <!-- =============================================== -->
+        <!-- ROW 2 -->
+        <!-- =============================================== -->
+
+        <div class="row g-4 mt-1">
+
+          <div class="col-lg-6">
+
+            <label class="form-label required">
+
+              Email User
+
+            </label>
+
+            <input
+              type="text"
+              class="form-control"
+              name="emailUser"
+              [(ngModel)]="email.emailUser"
+              placeholder="Enter Email User"
+              required>
+
+          </div>
+
+          <div class="col-lg-6">
+
+            <label class="form-label required">
+
+              Email Password
+
+            </label>
+
+            <input
+              type="password"
+              class="form-control"
+              name="emailPassword"
+              [(ngModel)]="email.emailPassword"
+              placeholder="Enter Password"
+              required>
+
+          </div>
+
+        </div>
+
+        <!-- =============================================== -->
+        <!-- ROW 3 -->
+        <!-- =============================================== -->
+
+        <div class="row g-4 mt-1">
+
+          <div class="col-lg-6">
+
+            <label class="form-label required">
+
+              Email From Address
+
+            </label>
+
+            <input
+              type="email"
+              class="form-control"
+              name="emailFromAddress"
+              [(ngModel)]="email.emailFromAddress"
+              placeholder="noreply@company.com"
+              required>
+
+          </div>
+
+          <div class="col-lg-6">
+
+            <label class="form-label">
+
+              Email CC Address
+
+            </label>
+
+            <input
+              type="email"
+              class="form-control"
+              name="emailCcAddress"
+              [(ngModel)]="email.emailCcAddress"
+              placeholder="accounts@company.com">
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- =============================================== -->
+      <!-- FOOTER -->
+      <!-- =============================================== -->
+
+      <div class="card-footer text-end">
+
+        <button
+          type="submit"
+          class="btn erp-btn-primary me-2">
+
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
+
+          Add
+
+        </button>
+
+        <button
+          type="button"
+          class="btn erp-btn-success"
+          (click)="updateEmailSetup()">
+
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg>
+
+          Update
+
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- TEST EMAIL -->
+    <!-- ===================================================== -->
+
+    <div class="erp-card mt-4">
+
+      <div class="card-header">
+
+        <h4>
+
+          Test Email
+
+        </h4>
+
+      </div>
+
+      <div class="card-body">
+
+        <div class="row align-items-end">
+
+          <div class="col-lg-9">
+
+            <label class="form-label">
+
+              Test Email
+
+            </label>
+
+            <input
+              type="email"
+              class="form-control"
+              name="testEmail"
+              [(ngModel)]="email.testEmail"
+              placeholder="Enter Test Email Address">
+
+          </div>
+
+          <div class="col-lg-3">
+
+            <button
+              type="button"
+              class="btn erp-btn-search w-100"
+              (click)="sendTestEmail()">
+
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"></path><path d="M22 2 11 13"></path></svg>
+
+              Test Email
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </form>
+
+</div>

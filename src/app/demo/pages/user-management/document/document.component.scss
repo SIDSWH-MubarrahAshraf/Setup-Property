@@ -1,0 +1,387 @@
+/* ==========================================================
+   DOCUMENT NUMBER
+========================================================== */
+
+.erp-container {
+  padding: 24px;
+  background: #f4f7fc;
+  min-height: 100vh;
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.erp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #6c5ce7;
+  margin-bottom: 5px;
+}
+
+.page-subtitle {
+  color: #6c757d;
+  margin: 0;
+  font-size: 14px;
+}
+
+/* ==========================================================
+   CARD
+========================================================== */
+
+.erp-card {
+
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 18px rgba(0,0,0,.08);
+
+}
+
+.card-header{
+
+  background:#6c5ce7;
+  color:white;
+  padding:18px 25px;
+
+}
+
+.card-header h4{
+
+  margin:0;
+  font-weight:600;
+  font-size:18px;
+
+}
+
+.card-body{
+
+  padding:30px;
+
+}
+
+/* ==========================================================
+   LABELS
+========================================================== */
+
+.form-label{
+
+  font-weight:600;
+  margin-bottom:8px;
+  color:#2c3e50;
+
+}
+
+/* ==========================================================
+   INPUT
+========================================================== */
+
+.form-control{
+
+  height:46px;
+  border-radius:8px;
+  border:1px solid #d7dce3;
+
+}
+
+.form-control:focus{
+
+  border-color:#6c5ce7;
+  box-shadow:0 0 0 .15rem rgba(0,39,102,.15);
+
+}
+
+/* ==========================================================
+   TABLE
+========================================================== */
+
+.erp-table{
+
+  margin-top:10px;
+  border-radius:10px;
+  overflow:hidden;
+
+}
+
+.erp-table thead{
+
+  background:#6c5ce7;
+  color:white;
+
+}
+
+.erp-table thead th{
+
+  border:none;
+  padding:14px;
+  font-weight:600;
+  font-size:14px;
+
+}
+
+.erp-table tbody td{
+
+  padding:14px;
+  vertical-align:middle;
+
+}
+
+.erp-table tbody tr{
+
+  transition:.25s;
+
+}
+
+.erp-table tbody tr:hover{
+
+  background:#f1f6ff;
+
+}
+
+.erp-table tbody tr:nth-child(even){
+
+  background:#fcfcfc;
+
+}
+
+/* ==========================================================
+   BUTTONS
+========================================================== */
+
+.erp-btn-primary{
+
+  background:#6c5ce7;
+  color:white;
+  border:none;
+  border-radius:8px;
+  transition:.3s;
+
+}
+
+.erp-btn-primary:hover{
+
+  background:#0144aa;
+  color:white;
+
+}
+
+.erp-btn-search{
+
+  background:#0d6efd;
+  color:white;
+  border:none;
+  height:46px;
+  border-radius:8px;
+  transition:.3s;
+
+}
+
+.erp-btn-search:hover{
+
+  background:#0b5ed7;
+  color:white;
+
+}
+
+.erp-btn-secondary{
+
+  background:#6c757d;
+  color:white;
+  border:none;
+  height:46px;
+  border-radius:8px;
+  transition:.3s;
+
+}
+
+.erp-btn-secondary:hover{
+
+  background:#5c636a;
+  color:white;
+
+}
+
+.erp-btn-primary i,
+.erp-btn-search i,
+.erp-btn-secondary i{
+
+  margin-right:6px;
+
+}
+
+/* ==========================================================
+   MODAL
+========================================================== */
+
+.modal-content{
+
+  border:none;
+  border-radius:12px;
+  overflow:hidden;
+  animation:popup .25s ease;
+
+}
+
+.modal-header{
+
+  background:#6c5ce7;
+  color:white;
+  border-bottom:none;
+  padding:18px 24px;
+
+}
+
+.modal-title{
+
+  font-size:18px;
+  font-weight:600;
+
+}
+
+.modal-body{
+
+  padding:25px;
+
+}
+
+.modal-footer{
+
+  border-top:1px solid #ececec;
+  padding:18px 24px;
+
+}
+
+.btn-close{
+
+  filter:invert(1);
+
+}
+
+/* ==========================================================
+   ANIMATION
+========================================================== */
+
+@keyframes popup{
+
+from{
+
+transform:translateY(-20px);
+opacity:0;
+
+}
+
+to{
+
+transform:translateY(0);
+opacity:1;
+
+}
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media(max-width:991px){
+
+.erp-header{
+
+flex-direction:column;
+align-items:flex-start;
+gap:10px;
+
+}
+
+.card-body{
+
+padding:20px;
+
+}
+
+.modal-dialog{
+
+margin:15px;
+
+}
+
+.table-responsive{
+
+overflow-x:auto;
+
+}
+
+}
+.full-width {
+  width: 100%;
+}
+
+.full-width-card {
+  width: 100%;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.search-field {
+  flex: 1;
+  min-width: 260px;
+}
+
+.search-actions {
+  display: flex;
+  gap: 10px;
+  align-items: end;
+}
+
+.compact-input {
+  height: 38px;
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.full-table {
+  width: 100%;
+  min-width: 100%;
+}
+
+.erp-table th,
+.erp-table td {
+  padding: 10px 12px;
+  white-space: nowrap;
+}
+
+.pill {
+  padding: 4px 10px;
+  border-radius: 12px;
+  background: #f1f3f9;
+  font-size: 12px;
+}
+
+.icon-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #6c5ce7;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 20px;
+  color: #888;
+}

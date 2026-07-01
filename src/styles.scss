@@ -36,3 +36,596 @@ File: style.css
 @import 'scss/themes/layouts/footer/footer.scss';
 
 @import 'scss/themes/preset-style.scss';
+
+/* ==========================================================
+   Tanacy ERP Enterprise Design System
+   Visual-only overrides. Angular bindings and behavior stay untouched.
+========================================================== */
+:root {
+  --erp-primary: #6c5ce7;
+  --erp-primary-hover: #5848d8;
+  --erp-primary-soft: #f4f1ff;
+  --erp-white: #ffffff;
+  --erp-bg: #f7f8fc;
+  --erp-text: #2f3542;
+  --erp-muted: #6b7280;
+  --erp-border: #e6e8ef;
+  --erp-success: #22c55e;
+  --erp-warning: #f59e0b;
+  --erp-danger: #ef4444;
+  --erp-radius: 16px;
+  --erp-control-radius: 10px;
+  --erp-shadow: 0 12px 30px rgba(47, 53, 66, 0.07);
+  --erp-shadow-sm: 0 6px 18px rgba(47, 53, 66, 0.06);
+  --bs-primary: var(--erp-primary);
+  --bs-primary-rgb: 108, 92, 231;
+  --bs-body-color: var(--erp-text);
+  --bs-body-bg: var(--erp-bg);
+  --pc-sidebar-background: var(--erp-white);
+  --pc-sidebar-active-color: var(--erp-primary);
+  --pc-active-background: var(--erp-primary-soft);
+  --pc-header-background: var(--erp-white);
+  --pc-heading-color: var(--erp-text);
+  --pc-card-box-shadow: var(--erp-shadow-sm);
+}
+
+html,
+body {
+  background: var(--erp-bg) !important;
+  color: var(--erp-text);
+  font-family: Inter, Poppins, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 14px;
+}
+
+a {
+  color: var(--erp-primary);
+}
+
+a:hover {
+  color: var(--erp-primary-hover);
+}
+
+.pc-container,
+.pc-content,
+.pcoded-content {
+  background: var(--erp-bg) !important;
+}
+
+.pc-container .pc-content {
+  padding: 24px;
+}
+
+.pc-header {
+  background: var(--erp-white) !important;
+  border-bottom: 1px solid var(--erp-border);
+  box-shadow: 0 1px 0 rgba(230, 232, 239, 0.85) !important;
+}
+
+.pc-sidebar {
+  background: var(--erp-white) !important;
+  border-right: 1px solid var(--erp-border) !important;
+  box-shadow: none !important;
+}
+
+.pc-sidebar .m-header {
+  border-bottom: 1px solid var(--erp-border);
+}
+
+.pc-sidebar .navbar-content {
+  padding: 18px 12px !important;
+}
+
+.pc-sidebar .coded-inner-navbar li.coded-menu-caption {
+  color: var(--erp-muted) !important;
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0 !important;
+  padding: 14px 12px 8px !important;
+  text-transform: uppercase !important;
+}
+
+.pc-sidebar .coded-inner-navbar li > a {
+  margin: 2px 0 !important;
+  padding: 11px 14px !important;
+  border-radius: 12px !important;
+  color: var(--erp-text) !important;
+  font-weight: 600;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.pc-sidebar .coded-inner-navbar li > a .coded-micon {
+  color: var(--erp-muted);
+  transition: color 180ms ease;
+}
+
+.pc-sidebar .coded-inner-navbar li > a:hover,
+.pc-sidebar .coded-inner-navbar li.active > a,
+.pc-sidebar .coded-inner-navbar li.coded-trigger > a {
+  background: var(--erp-primary-soft) !important;
+  color: var(--erp-primary) !important;
+}
+
+.pc-sidebar .coded-inner-navbar li > a:hover .coded-micon,
+.pc-sidebar .coded-inner-navbar li.active > a .coded-micon,
+.pc-sidebar .coded-inner-navbar li.coded-trigger > a .coded-micon {
+  color: var(--erp-primary) !important;
+}
+
+.pc-sidebar .coded-submenu li > a {
+  padding-left: 44px !important;
+  color: var(--erp-muted) !important;
+}
+
+.erp-container,
+.services-shell,
+.setup-shell {
+  max-width: 1240px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  color: var(--erp-text) !important;
+}
+
+.erp-header,
+.services-header,
+.setup-header {
+  border: 1px solid var(--erp-border) !important;
+  border-bottom: 0 !important;
+  border-radius: var(--erp-radius) var(--erp-radius) 0 0 !important;
+  background: var(--erp-white) !important;
+  box-shadow: var(--erp-shadow) !important;
+  margin: 0 !important;
+  padding: 22px 24px !important;
+}
+
+.erp-header + form .erp-card,
+.services-header + .service-card,
+.setup-header + .tabs-card {
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  margin-top: 0 !important;
+}
+
+.page-title,
+.erp-header h1,
+.erp-header h2,
+.services-header h1,
+.setup-header h1 {
+  color: var(--erp-text) !important;
+  font-size: 26px !important;
+  line-height: 1.2 !important;
+  font-weight: 800 !important;
+  letter-spacing: 0 !important;
+  margin: 0 !important;
+}
+
+.page-subtitle,
+.text-muted,
+.form-text {
+  color: var(--erp-muted) !important;
+}
+
+.card,
+.erp-card,
+.service-card,
+.property-card,
+.unit-card,
+.tabs-card,
+.property-upload-card,
+.property-actions,
+.service-actions,
+.modal-content,
+.dropdown-menu {
+  border: 1px solid var(--erp-border) !important;
+  border-radius: var(--erp-radius) !important;
+  background: var(--erp-white) !important;
+  box-shadow: var(--erp-shadow-sm) !important;
+}
+
+.erp-card,
+.service-card,
+.property-card,
+.unit-card,
+.tabs-card {
+  overflow: hidden !important;
+}
+
+.card-header,
+.erp-card > .card-header {
+  background: var(--erp-white) !important;
+  color: var(--erp-text) !important;
+  padding: 18px 22px !important;
+  border-bottom: 1px solid var(--erp-border) !important;
+}
+
+.card-header h1,
+.card-header h2,
+.card-header h3,
+.card-header h4,
+.card-header h5,
+.card-header h6 {
+  color: var(--erp-text) !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0 !important;
+  margin: 0 !important;
+}
+
+.card-body {
+  padding: 22px !important;
+}
+
+.card-footer {
+  padding: 16px 22px !important;
+  background: var(--erp-bg) !important;
+  border-top: 1px solid var(--erp-border) !important;
+}
+
+.form-label,
+label,
+.field span,
+.property-search span {
+  color: var(--erp-text) !important;
+  font-size: 13px !important;
+  line-height: 1.25 !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+  margin-bottom: 6px !important;
+}
+
+.form-control,
+.form-select,
+.erp-input,
+.field input,
+.field select,
+.search-row,
+.search-box {
+  min-height: 42px !important;
+  border: 1px solid var(--erp-border) !important;
+  border-radius: var(--erp-control-radius) !important;
+  background-color: var(--erp-white) !important;
+  color: var(--erp-text) !important;
+  font-size: 14px !important;
+  box-sizing: border-box !important;
+  box-shadow: none !important;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease;
+}
+
+.form-control,
+.form-select,
+.erp-input,
+.field input,
+.field select {
+  padding: 0 12px !important;
+}
+
+textarea.form-control {
+  min-height: 92px !important;
+  padding: 10px 12px !important;
+}
+
+.form-control::placeholder,
+.erp-input::placeholder,
+.field input::placeholder {
+  color: #9ca3af !important;
+}
+
+.form-control:focus,
+.form-select:focus,
+.erp-input:focus,
+.field input:focus,
+.field select:focus,
+.search-row:focus-within,
+.search-box:focus-within {
+  border-color: var(--erp-primary) !important;
+  background: var(--erp-white) !important;
+  box-shadow: 0 0 0 4px rgba(108, 92, 231, 0.12) !important;
+  outline: 0 !important;
+}
+
+.row {
+  --bs-gutter-x: 1rem !important;
+  --bs-gutter-y: 1rem !important;
+}
+
+.input-group {
+  align-items: stretch !important;
+}
+
+.input-group .form-control {
+  min-width: 0 !important;
+}
+
+.btn,
+.input-group .btn,
+.erp-btn-search,
+.erp-btn-primary,
+.erp-btn-secondary,
+.erp-btn-success,
+.erp-btn-danger,
+.icon-btn,
+.action-btn,
+.add-btn,
+.new-property-btn,
+.status-toggle {
+  min-height: 42px !important;
+  border-radius: var(--erp-control-radius) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0 !important;
+  box-shadow: none !important;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.btn:hover,
+.icon-btn:hover,
+.action-btn:hover,
+.new-property-btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary,
+.erp-btn-primary,
+.erp-btn-search,
+.icon-btn.primary,
+.add-btn,
+.new-property-btn,
+.action-btn.primary {
+  background: var(--erp-primary) !important;
+  border-color: var(--erp-primary) !important;
+  color: var(--erp-white) !important;
+  box-shadow: 0 8px 18px rgba(108, 92, 231, 0.18) !important;
+}
+
+.btn-primary:hover,
+.erp-btn-primary:hover,
+.erp-btn-search:hover,
+.icon-btn.primary:hover,
+.add-btn:hover,
+.new-property-btn:hover,
+.action-btn.primary:hover {
+  background: var(--erp-primary-hover) !important;
+  border-color: var(--erp-primary-hover) !important;
+}
+
+.btn-outline-primary,
+.erp-btn-secondary,
+.action-btn.secondary {
+  background: var(--erp-white) !important;
+  border: 1px solid var(--erp-primary) !important;
+  color: var(--erp-primary) !important;
+}
+
+.btn-light,
+.btn-secondary,
+.action-btn.neutral,
+.icon-btn:not(.primary):not(.danger) {
+  background: var(--erp-primary-soft) !important;
+  border: 1px solid var(--erp-border) !important;
+  color: var(--erp-primary) !important;
+}
+
+.btn-success,
+.erp-btn-success {
+  background: var(--erp-success) !important;
+  border-color: var(--erp-success) !important;
+  color: var(--erp-white) !important;
+}
+
+.btn-danger,
+.erp-btn-danger,
+.action-btn.danger,
+.icon-btn.danger {
+  background: var(--erp-danger) !important;
+  border-color: var(--erp-danger) !important;
+  color: var(--erp-white) !important;
+}
+
+.dropdown-menu {
+  padding: 8px !important;
+  border-radius: 14px !important;
+}
+
+.dropdown-item {
+  border-radius: 10px;
+  color: var(--erp-text);
+  font-weight: 600;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus,
+.dropdown-item.active,
+.dropdown-item:active {
+  background: var(--erp-primary-soft);
+  color: var(--erp-primary);
+}
+
+.nav-tabs {
+  gap: 8px;
+  border-bottom: 1px solid var(--erp-border);
+}
+
+.nav-tabs .nav-link,
+.tab-button {
+  border: 1px solid transparent !important;
+  border-radius: 999px !important;
+  color: var(--erp-muted) !important;
+  font-weight: 700 !important;
+}
+
+.nav-tabs .nav-link:hover,
+.tab-button:hover {
+  background: var(--erp-primary-soft) !important;
+  color: var(--erp-primary) !important;
+}
+
+.nav-tabs .nav-link.active,
+.tab-button.active {
+  background: var(--erp-primary) !important;
+  border-color: var(--erp-primary) !important;
+  color: var(--erp-white) !important;
+}
+
+.table-responsive,
+.table-wrapper {
+  border-radius: 14px !important;
+  border: 1px solid var(--erp-border) !important;
+  overflow: auto !important;
+  background: var(--erp-white);
+}
+
+.table,
+.erp-table,
+.unit-table,
+.documents-table {
+  margin: 0 !important;
+  color: var(--erp-text) !important;
+  font-size: 14px !important;
+}
+
+.table thead th,
+.erp-table thead th,
+.unit-table th,
+.documents-table th {
+  background: var(--erp-primary) !important;
+  color: var(--erp-white) !important;
+  border-bottom: 0 !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0 !important;
+  padding: 12px 14px !important;
+  white-space: nowrap;
+}
+
+.table tbody td,
+.erp-table tbody td,
+.unit-table td,
+.documents-table td {
+  padding: 12px 14px !important;
+  border-bottom: 1px solid var(--erp-border) !important;
+  vertical-align: middle !important;
+}
+
+.table-hover tbody tr:hover,
+.table tbody tr:hover,
+.erp-table tbody tr:hover,
+.unit-table tbody tr:hover,
+.documents-table tbody tr:hover {
+  background: var(--erp-primary-soft) !important;
+}
+
+.badge.bg-primary,
+.status-draft {
+  background: var(--erp-primary) !important;
+}
+
+.badge.bg-success,
+.status-posted {
+  background: var(--erp-success) !important;
+}
+
+.badge.bg-warning,
+.status-pending {
+  background: var(--erp-warning) !important;
+  color: #111827 !important;
+}
+
+.badge.bg-danger,
+.status-cancelled {
+  background: var(--erp-danger) !important;
+}
+
+.alert {
+  border-radius: 14px !important;
+  border: 1px solid var(--erp-border) !important;
+}
+
+svg,
+i {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 991px) {
+  .pc-container .pc-content {
+    padding: 16px;
+  }
+
+  .erp-header,
+  .services-header,
+  .setup-header,
+  .card-body {
+    padding: 16px !important;
+  }
+}
+
+@media (max-width: 575px) {
+  .pc-container .pc-content {
+    padding: 12px;
+  }
+
+  .page-title,
+  .erp-header h1,
+  .services-header h1,
+  .setup-header h1 {
+    font-size: 22px !important;
+  }
+}
+
+/* User Management search/action icon buttons */
+.erp-container .erp-btn-search,
+.erp-container .input-group .icon-btn,
+.erp-container .search-actions .icon-btn {
+  background: var(--erp-white) !important;
+  border: 1px solid var(--erp-border) !important;
+  color: var(--erp-primary) !important;
+  box-shadow: none !important;
+}
+
+.erp-container .input-group .icon-btn {
+  border-left: 0 !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+.erp-container .erp-btn-search:hover,
+.erp-container .input-group .icon-btn:hover,
+.erp-container .search-actions .icon-btn:hover {
+  background: var(--erp-primary-soft) !important;
+  border-color: var(--erp-primary) !important;
+  color: var(--erp-primary) !important;
+  transform: none;
+}
+
+.erp-container .erp-btn-search svg,
+.erp-container .input-group .icon-btn svg,
+.erp-container .search-actions .icon-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.erp-container svg:not(.bi) {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.erp-container svg.bi {
+  fill: currentColor;
+  stroke: none;
+}

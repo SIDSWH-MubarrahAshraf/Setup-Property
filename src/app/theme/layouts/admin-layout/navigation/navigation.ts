@@ -19,63 +19,11 @@ export interface NavigationItem {
 }
 
 export const NavigationItems: NavigationItem[] = [
-  {
-    id: 'dashboard',
-    title: 'Dashboard',
-    type: 'group',
-    icon: 'icon-navigation',
-    children: [
-      {
-        id: 'default',
-        title: 'Default',
-        type: 'item',
-        classes: 'nav-item',
-        url: '/dashboard/default',
-        icon: 'dashboard',
-        breadcrumbs: false
-      }
-    ]
-  },
 
-  {
-    id: 'transactions',
-    title: 'Transactions',
-    type: 'group',
-    icon: 'file-text',
-    children: [
-      {
-        id: 'invoice-entry',
-        title: 'Invoice Management',
-        type: 'item',
-        url: '/invoice-entry'
-      }
-    ]
-  },
-
-  {
-    id: 'contract',
-    title: 'Contract',
-    type: 'group',
-    icon: 'file-text',
-    children: [
-      {
-        id: 'receipt-entry',
-        title: 'Receipt Entry',
-        type: 'item',
-        url: '/receipt-entry'
-      },
-      {
-        id: 'recurring-entries',
-        title: 'Recurring Entries',
-        type: 'item',
-        url: '/recurring-entries'
-      }
-    ]
-  },
 
   {
     id: 'utilities',
-    title: 'UI Components',
+    title: 'Tanacy',
     type: 'group',
     icon: 'icon-navigation',
     children: [
@@ -85,7 +33,6 @@ export const NavigationItems: NavigationItem[] = [
         type: 'item',
         classes: 'nav-item',
         url: '/property/setup',
-        icon: 'setting',
         breadcrumbs: false
       },
       {
@@ -98,87 +45,53 @@ export const NavigationItems: NavigationItem[] = [
         breadcrumbs: false
       },
       {
-        id: 'typography',
-        title: 'Typography',
-        type: 'item',
-        classes: 'nav-item',
-        url: '/typography',
-        icon: 'font-size'
-      },
-      {
-        id: 'color',
-        title: 'Colors',
-        type: 'item',
-        classes: 'nav-item',
-        url: '/color',
-        icon: 'bg-colors'
-      },
-      {
-        id: 'ant-icons',
-        title: 'Ant Icons',
-        type: 'item',
-        classes: 'nav-item',
-        url: 'https://ant.design/components/icon',
-        icon: 'ant-design',
-        target: true,
-        external: true
-      }
-    ]
-  },
-
-  {
-    id: 'authentication',
-    title: 'Authentication',
-    type: 'group',
-    icon: 'icon-navigation',
-    children: [
-      {
-        id: 'login',
-        title: 'Login',
-        type: 'item',
-        classes: 'nav-item',
-        url: '/login',
-        icon: 'login',
-        target: true,
-        breadcrumbs: false
-      },
-      {
-        id: 'register',
-        title: 'Register',
-        type: 'item',
-        classes: 'nav-item',
-        url: '/register',
-        icon: 'profile',
-        target: true,
-        breadcrumbs: false
-      }
-    ]
-  },
-
-  {
-    id: 'other',
-    title: 'Other',
-    type: 'group',
-    icon: 'icon-navigation',
-    children: [
-      {
-        id: 'sample-page',
-        title: 'Sample Page',
-        type: 'item',
-        url: '/sample-page',
-        classes: 'nav-item',
-        icon: 'chrome'
-      },
-      {
-        id: 'document',
-        title: 'Document',
-        type: 'item',
-        classes: 'nav-item',
-        url: 'https://codedthemes.gitbook.io/mantis-angular/',
-        icon: 'question',
-        target: true,
-        external: true
-      }
+  id: 'user-management',
+  title: 'User Management',
+  type: 'collapse',
+  icon: 'ti ti-users',
+  children: [
+    {
+      id: 'users',
+      title: 'Users',
+      type: 'item',
+      url: '/user-management/users',
+      classes: 'nav-item',
+      breadcrumbs: false
+    },
+    {
+      id: 'department',
+      title: 'Department',
+      type: 'item',
+      url: '/user-management/department',
+      classes: 'nav-item',
+      breadcrumbs: false
+    },
+    {
+      id: 'designation',
+      title: 'Designation',
+      type: 'item',
+      url: '/user-management/designation',
+      classes: 'nav-item',
+      breadcrumbs: false
+    },
+    {
+      id: 'document-number',
+      title: 'Document Number',
+      type: 'item',
+      url: '/user-management/document-number',
+      classes: 'nav-item',
+      breadcrumbs: false
+    },
+    {
+      id: 'company-email',
+      title: 'Company Email',
+      type: 'item',
+      url: '/user-management/company-email',
+      classes: 'nav-item',
+      breadcrumbs: false
+    }
+  ]
+}
     ]
   }
 ];
